@@ -1,6 +1,6 @@
 classdef PolyMmsKkt < handle
-    %UNTITLED5 Summary of this class goes here
-    %   Detailed explanation goes here
+    % use degration of acceleration to get a estimation of deformation
+    % turn data in time domain to the space domain
 
     properties
         xx_itg;
@@ -21,7 +21,6 @@ classdef PolyMmsKkt < handle
 
     methods
         function obj = PolyMmsKkt(p_x, p_y, m, varargin)
-
 
 
         % able to add derivative informations
@@ -52,6 +51,8 @@ classdef PolyMmsKkt < handle
             parse(p, p_x, p_y, m, varargin{:});
 
             obj.m = p.Results.m;
+            
+            % KKT method
             [obj.w, obj.b] = gererate_wb(p.Results.p_x, p.Results.p_y, obj.m);
 
 
@@ -84,7 +85,8 @@ classdef PolyMmsKkt < handle
 
 
         function [yy, itg_yy] = view_spline(obj, xx, dx)
-
+            % yy: rotation
+            % yy_itg: deformation
             obj.xx_itg = xx;
             obj.dx = dx;
             yy = zeros(length(xx), 1);
