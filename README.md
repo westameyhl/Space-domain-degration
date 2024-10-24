@@ -1,5 +1,5 @@
 # Space-domain-degration
-new degrade algorism, related to a published paper published by the author
+new degrade algorithm, related to a published paper published by the author
 
 Detail is in a paper published in Mechanical Systems and Signal Processing (MSSP)
 "Acceleration-based deflection angle and deflection estimation of beams in data-driven models"
